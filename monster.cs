@@ -9,6 +9,7 @@ public class Antogonist : MonoBehaviour
     public Transform player;
     public float speed = 10f;
     public float detectionRange = 20f;
+    public AudioSource zvuk;
     private NavMeshAgent agent;
 
     void Start()
@@ -28,6 +29,7 @@ public class Antogonist : MonoBehaviour
         else
         {
             agent.SetDestination(player.position);
+            zvuk.Play();
         }
     }
 
