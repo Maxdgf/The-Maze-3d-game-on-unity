@@ -9,6 +9,7 @@ public class itemCollector : MonoBehaviour
     public GameObject tmor;
     public Text ItemCountText;
     public Text preduprejdenie;
+    public AudioSource musik;
     public int ItemsCollected;
 
     public void OnTriggerEnter(Collider other)
@@ -18,13 +19,14 @@ public class itemCollector : MonoBehaviour
             ItemsCollected++;
             ItemCountText.text = "Diamonds: " + ItemsCollected;
             Destroy(other.gameObject);
+            musik.Play();  
         }
 
         if (ItemsCollected == 80)
         {
             Animator tm = tmor.GetComponent<Animator>();
             tm.enabled = true;
-            preduprejdenie.text = "Бегите к выходу!";
+            preduprejdenie.text = "Run to the Exit!";
                
         }
 
